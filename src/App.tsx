@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Input } from './compomnents/input';
+import { Button } from './compomnents/button';
 
 function App() {
-  function handleSubmit() {}
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    console.log('teste');
+  }
 
   function handle() {}
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={event => handleSubmit(event)}>
         <Input
           handle={handle}
           type={'email'}
@@ -21,6 +26,8 @@ function App() {
           type={'password'}
           placeholder={'digite sua senha'}
         />
+
+        <Button name="Enviar" type="submit" />
       </form>
     </div>
   );
