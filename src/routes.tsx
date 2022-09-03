@@ -14,6 +14,7 @@ export default function Router() {
         <Route path="/sign_in" element={<SignIn />} />
         <Route path="/sign_up" element={<SignUp />} />
         <Route path="/created_success" element={<CreatedSuccess />} />
+        <Route path="page_400" element={<PageNotFound />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

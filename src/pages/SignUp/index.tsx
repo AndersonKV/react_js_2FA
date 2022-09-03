@@ -11,8 +11,7 @@ export function SignUp() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    navigate('/created_success');
-    console.log('Navigate');
+    navigate('/created_success', { state: { success: true } });
   }
 
   function handle() {}
