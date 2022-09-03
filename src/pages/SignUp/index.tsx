@@ -1,26 +1,42 @@
 import { FormEvent } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Button } from '../../compomnents/button';
+import { Form } from '../../compomnents/form';
 import { Input } from '../../compomnents/input';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export function SignUp() {
+  let navigate = useNavigate();
+
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-
-    console.log('teste');
+    navigate('/created_success');
+    console.log('Navigate');
   }
 
   function handle() {}
 
   return (
-    <form onSubmit={event => handleSubmit(event)}>
-      <Input handle={handle} type={'email'} placeholder={'digite seu email'} />
+    <Form handle={event => handleSubmit(event)}>
+      <Input handle={handle} type={'text'} placeholder={'digite seu nome'} />
+      <Input handle={handle} type={'email'} placeholder={'Digite seu email'} />
       <Input
         handle={handle}
         type={'password'}
-        placeholder={'digite sua senha'}
+        placeholder={'Digite sua senha'}
+      />
+      <Input
+        handle={handle}
+        type={'password'}
+        placeholder={'Senha de confirmação'}
       />
 
       <Button name="Enviar" type="submit" />
-    </form>
+      <div>
+        <span>Tem uma conta?</span>
+        <Link to="/sign_in">Conecte-se</Link>
+      </div>
+    </Form>
   );
 }

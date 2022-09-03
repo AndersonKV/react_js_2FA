@@ -1,5 +1,8 @@
 import { FormEvent } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Button } from '../../compomnents/button';
+import { Form } from '../../compomnents/form';
 import { Input } from '../../compomnents/input';
 
 export function SignIn() {
@@ -12,7 +15,7 @@ export function SignIn() {
   function handle() {}
 
   return (
-    <form onSubmit={event => handleSubmit(event)}>
+    <Form handle={event => handleSubmit(event)}>
       <Input handle={handle} type={'email'} placeholder={'digite seu email'} />
       <Input
         handle={handle}
@@ -21,6 +24,11 @@ export function SignIn() {
       />
 
       <Button name="Enviar" type="submit" />
-    </form>
+
+      <div>
+        <span>Não tem conta?</span>
+        <Link to="/sign_up">Cadastra-se</Link>
+      </div>
+    </Form>
   );
 }

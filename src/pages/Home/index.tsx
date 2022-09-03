@@ -1,7 +1,9 @@
+import { SignIn } from '../SignIn';
+
 export function Home() {
   return (
     <div>
-      <span>home</span>
+      <SignIn />
     </div>
   );
 }
