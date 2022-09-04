@@ -5,7 +5,7 @@ export const Content = styled.div`
   input {
     width: 100%;
     padding: 12px 20px;
-    margin: 2px 0;
+    margin: 5px 0;
     box-sizing: border-box;
     border: 1.5px solid #d3d3d3;
     transition: 0.2s;
