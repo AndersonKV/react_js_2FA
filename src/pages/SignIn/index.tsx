@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -9,6 +9,8 @@ import { useFormik } from '../../hooks/useFormik';
 import { Container } from './styles';
 
 export function SignIn() {
+  const [success, setSuccess] = useState(false);
+
   let navigate = useNavigate();
 
   const intials = {
@@ -36,7 +38,19 @@ export function SignIn() {
       return;
     }
 
+    setSuccess(!success);
+
     console.log('teste');
+  }
+
+  if (success) {
+    return (
+      <Container>
+        <div>
+          <span></span>
+        </div>
+      </Container>
+    );
   }
 
   return (
