@@ -32,21 +32,21 @@ export function useFormik({ initialValues, labelErrors }: IProps) {
   }
 
   function loginValidate(values: PropsForm) {
-    // const err = {} as PropsForm;
-    // let regex = new RegExp(
-    //   /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-    // );
-    // if (values.email.length === 0 || regex.test(values.email) === false) {
-    //   err.email = 'Email formatado';
-    // }
-    // if (values.password.length < 8) {
-    //   err.password = 'A senha deve ter 8 digitos';
-    // }
-    // if (values.error) {
-    //   err.error = values.error;
-    // }
-    // setErrors(err);
-    // return err;
+    const err = {} as any;
+    let regex = new RegExp(
+      /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    );
+
+    if (values.email.length === 0 || regex.test(values.email) === false) {
+      err.email = 'Email formatado';
+    }
+
+    if (values.password.length < 8) {
+      err.password = 'A senha deve ter 8 digitos';
+    }
+
+    setErrors(err);
+    return err;
   }
 
   function registerValidate(values: PropsForm) {
