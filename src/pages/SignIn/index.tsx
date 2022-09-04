@@ -1,13 +1,17 @@
 import { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { Button } from '../../compomnents/button';
 import { Form } from '../../compomnents/form';
 import { Input } from '../../compomnents/input';
 
 export function SignIn() {
+  let navigate = useNavigate();
+
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    localStorage.setItem('@auth', JSON.stringify('[]'));
 
     console.log('teste');
   }
