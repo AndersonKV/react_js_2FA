@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Container } from './styles';
+import { Link } from 'react-router-dom';
 
 interface Props {
   state: {
@@ -17,5 +19,15 @@ export function CreatedSuccess() {
       navigate('/page_400');
     }
   }, []);
-  return <div>sucesso</div>;
+  return (
+    <Container>
+      <div>
+        <span>Conta criada com successo</span>
+        <span>🤗</span>
+      </div>
+      <div>
+        <Link to={'/sign_in'}>Entrar</Link>
+      </div>
+    </Container>
+  );
 }
