@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { Button } from '../../compomnents/button';
 import { Form } from '../../compomnents/form';
 import { Input } from '../../compomnents/input';
+import { Container } from './styles';
 
 export function SignIn() {
   let navigate = useNavigate();
@@ -19,20 +20,26 @@ export function SignIn() {
   function handle() {}
 
   return (
-    <Form handle={event => handleSubmit(event)}>
-      <Input handle={handle} type={'email'} placeholder={'digite seu email'} />
-      <Input
-        handle={handle}
-        type={'password'}
-        placeholder={'digite sua senha'}
-      />
+    <Container>
+      <Form handle={event => handleSubmit(event)}>
+        <Input
+          handle={handle}
+          type={'email'}
+          placeholder={'digite seu email'}
+        />
+        <Input
+          handle={handle}
+          type={'password'}
+          placeholder={'digite sua senha'}
+        />
 
-      <Button name="Enviar" type="submit" />
+        <Button name="Enviar" type="submit" />
 
-      <div>
-        <span>Não tem conta?</span>
-        <Link to="/sign_up">Cadastra-se</Link>
-      </div>
-    </Form>
+        <div>
+          <span>Não tem conta?</span>
+          <Link to="/sign_up">Cadastra-se</Link>
+        </div>
+      </Form>
+    </Container>
   );
 }
