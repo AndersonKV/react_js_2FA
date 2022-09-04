@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+import { Container } from './styles';
+
 export function PageNotFound() {
   return (
-    <div>
-      <span>PageNotFound</span>
-    </div>
+    <Container>
+      <span>Pagina não encontrada 😱</span>
+      <Link to={'/'}>Voltar</Link>
+    </Container>
   );
 }

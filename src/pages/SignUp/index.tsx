@@ -12,7 +12,7 @@ export function SignUp() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    navigate('/created_success', { state: { success: true } });
+    //navigate('/created_success', { state: { success: true } });
   }
 
   function handle() {}
