@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
- 
+  display: flex;
+  flex-direction: column;
+
+  
   input {
     width: 100%;
     padding: 12px 20px;
@@ -15,7 +18,19 @@ export const Content = styled.div`
   }
 
   input:focus {
-    border: 1.5px solid #C0C0C0;
- 
+    border: 1.5px solid #c0c0c0;
+  }
+
+  div {
+    margin: 0 0px;
+
+    p {
+      color: red;
+      font-weight: bold;
+      font-size: 10px;
+      label {
+        color: #34495e;
+      }
+    }
   }
 `;

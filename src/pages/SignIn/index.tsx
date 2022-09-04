@@ -22,16 +22,20 @@ export function SignIn() {
   return (
     <Container>
       <Form handle={event => handleSubmit(event)}>
-        <Input
+        {/* <Input
+          name="email"
           handle={handle}
           type={'email'}
           placeholder={'digite seu email'}
+          labelError={formik.errors.email}
         />
         <Input
+          name="password"
           handle={handle}
           type={'password'}
           placeholder={'digite sua senha'}
-        />
+          labelError={formik.errors.}
+        /> */}
 
         <Button color="#2948ff" name="Enviar" type="submit" />
 

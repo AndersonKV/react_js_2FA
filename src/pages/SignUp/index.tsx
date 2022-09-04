@@ -4,37 +4,71 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../compomnents/button';
 import { Form } from '../../compomnents/form';
 import { Input } from '../../compomnents/input';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Container } from './styles';
+import { useFormik } from '../../hooks/useFormik';
 
 export function SignUp() {
   let navigate = useNavigate();
 
+  const intials = {
+    name: '',
+    email: '',
+    password: '',
+    confirm_password: '',
+    phone: '',
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      ...intials,
+    },
+    labelErrors: {
+      ...intials,
+    },
+  });
+
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
+
+    if (Object.values(formik.registerValidate(formik.values)).length) {
+      return;
+    }
+
     //navigate('/created_success', { state: { success: true } });
   }
-
-  function handle() {}
 
   return (
     <Container>
       <Form handle={event => handleSubmit(event)}>
-        <Input handle={handle} type={'text'} placeholder={'digite seu nome'} />
         <Input
-          handle={handle}
+          name="name"
+          handle={formik.handleChange}
+          type={'text'}
+          placeholder={'digite seu nome'}
+          labelError={formik.errors.name}
+        />
+        <Input
+          name="email"
+          handle={formik.handleChange}
           type={'email'}
           placeholder={'Digite seu email'}
+          labelError={formik.errors.email}
         />
         <Input
-          handle={handle}
+          name="password"
+          handle={formik.handleChange}
           type={'password'}
           placeholder={'Digite sua senha'}
+          labelError={formik.errors.password}
         />
+
         <Input
-          handle={handle}
-          type={'password'}
-          placeholder={'Senha de confirmação'}
+          name="phone"
+          handle={formik.handleChange}
+          type={'number'}
+          placeholder={'Seu celular'}
+          labelError={formik.errors.phone}
         />
 
         <Button color="#2948ff" name="Registrar" type="submit" />
