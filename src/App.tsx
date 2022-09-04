@@ -1,23 +1,14 @@
 import React, { FormEvent } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Input } from './compomnents/input';
-import { Button } from './compomnents/button';
+import { Provider } from 'react-redux';
+
 import Router from './routes';
+import store from './store';
 
 function App() {
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-
-    console.log('teste');
-  }
-
-  function handle() {}
-
   return (
-    <div className="App">
+    <Provider store={store}>
       <Router />
-    </div>
+    </Provider>
   );
 }
 
