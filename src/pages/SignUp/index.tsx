@@ -31,7 +31,7 @@ export function SignUp() {
         placeholder={'Senha de confirmação'}
       />
 
-      <Button name="Enviar" type="submit" />
+      <Button color="#2948ff" name="Enviar" type="submit" />
       <div>
         <span>Tem uma conta?</span>
         <Link to="/sign_in">Conecte-se</Link>

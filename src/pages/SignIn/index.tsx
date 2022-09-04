@@ -33,7 +33,7 @@ export function SignIn() {
           placeholder={'digite sua senha'}
         />
 
-        <Button name="Enviar" type="submit" />
+        <Button color="#2948ff" name="Enviar" type="submit" />
 
         <div>
           <span>Não tem conta?</span>
