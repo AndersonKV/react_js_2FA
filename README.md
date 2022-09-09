@@ -1,6 +1,6 @@
 #react com 2fa usando o twilio
 
-App feito com react e styled compomnent e um pouco de redux, o foco não era o css mas o seu funcionamento</br>
+App feito com react, styled compomnent, typescript e um pouco de redux e uma adaptação do formik no hooks para o formulario, o foco não era o css mas o seu funcionamento</br>
 como o envio de sms</br>
 
 Você faz o registro com o numero do celular, e quando for fazer o login ele envia um sms para autenticar
