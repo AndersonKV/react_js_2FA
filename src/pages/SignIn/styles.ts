@@ -37,5 +37,17 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     padding: 30px;
+
+    button {
+      margin: 20px;
+      
+       align-self: center;
+      width: 200px;
+      padding: 10px;
+      border: none;
+      background: white;
+      font-weight: bold;
+      border: 2px solid #d3d3d3;
+    }
   }
 `;
