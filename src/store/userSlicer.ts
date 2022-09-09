@@ -19,15 +19,18 @@ type SelectAuth = {
         isLogged: boolean;
         token: string;
     };
+
 };
 
-type TypeAction = {
+type TypeActionAuth = {
     payload: {
         user: User;
         token: string;
+        isLogged: boolean;
     };
     type: string;
 };
+
 
 export const userSlice = createSlice({
     name: 'user',
@@ -37,7 +40,7 @@ export const userSlice = createSlice({
         token: '',
     },
     reducers: {
-        auth(state: { user: {} }, action: TypeAction) {
+        auth(state: { user: {} }, action: TypeActionAuth) {
             return {
                 ...state,
                 isLogged: true,
@@ -51,7 +54,10 @@ export const userSlice = createSlice({
     },
 });
 
-export const { logout, auth } = userSlice.actions;
+
+
+export const { logout, auth, } = userSlice.actions;
+
 
 export const selectAuth = (state: SelectAuth) => state.auth;
 

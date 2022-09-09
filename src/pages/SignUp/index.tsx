@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Button } from '../../compomnents/button';
@@ -9,6 +9,8 @@ import { Container } from './styles';
 import { useFormik } from '../../hooks/useFormik';
 
 export function SignUp() {
+  const [errors, setErrors] = useState('');
+
   let navigate = useNavigate();
 
   const intials = {
@@ -35,7 +37,23 @@ export function SignUp() {
       return;
     }
 
-    //navigate('/created_success', { state: { success: true } });
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formik.values),
+    };
+
+    fetch('http://localhost:3333/users/create', requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+
+        if (data.error) {
+          setErrors(data.error);
+          return;
+        }
+        navigate('/created_success', { state: { success: true } });
+      });
   }
 
   return (
@@ -67,9 +85,17 @@ export function SignUp() {
           name="phone"
           handle={formik.handleChange}
           type={'number'}
-          placeholder={'Seu celular'}
+          placeholder={'Celular xx xx xxxxx xxxx'}
           labelError={formik.errors.phone}
         />
+
+        {errors ? (
+          <div className="display-error">
+            <p>
+              *<label>{errors}</label>
+            </p>
+          </div>
+        ) : null}
 
         <Button color="#2948ff" name="Registrar" type="submit" />
         <div>

@@ -6,6 +6,7 @@ interface PropsForm {
   password: string;
   confirm_password: string;
   phone: string;
+  sms?: string;
 }
 
 interface IProps {
@@ -66,7 +67,7 @@ export function useFormik({ initialValues, labelErrors }: IProps) {
       err.password = 'A senha deve ter 8 digitos';
     }
 
-    if (values.phone.length !== 11) {
+    if (values.phone.length !== 13) {
       err.phone = 'Celular mal formatado';
     }
 

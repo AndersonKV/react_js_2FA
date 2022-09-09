@@ -14,7 +14,20 @@ export const Container = styled.div`
   }
 
   div:last-of-type {
-     display: flex;
+    display: flex;
     justify-content: space-between;
+  }
+
+  .display-error {
+     margin: 0 0px;
+
+    p {
+      color: red;
+      font-weight: bold;
+      font-size: 10px;
+      label {
+        color: #34495e;
+      }
+    }
   }
 `;

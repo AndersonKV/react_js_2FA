@@ -1,16 +1,22 @@
 import { useEffect } from 'react';
 import { SignIn } from '../SignIn';
-import { Navigate, useNavigate } from 'react-router-dom';
 import { Container } from './styles';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+interface Props {
+  state: {
+    auth?: boolean;
+  };
+}
 
 export function Home() {
   let navigate = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
-    const storageKey = localStorage.getItem('@auth');
-    console.log(storageKey);
+    const props = location as Props;
 
-    if (!storageKey) {
+    if (!props.state?.auth) {
       navigate('/sign_in');
     }
   }, []);

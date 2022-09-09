@@ -11,13 +11,6 @@ interface Props {
 export function Input({ handle, name, placeholder, type, labelError }: Props) {
   return (
     <Content>
-      <input
-        name={name}
-        onChange={handle}
-        placeholder={placeholder}
-        type={type}
-      />
-
       {labelError && (
         <div>
           <p>
@@ -25,6 +18,13 @@ export function Input({ handle, name, placeholder, type, labelError }: Props) {
           </p>
         </div>
       )}
+
+      <input
+        name={name}
+        onChange={handle}
+        placeholder={placeholder}
+        type={type}
+      />
     </Content>
   );
 }
